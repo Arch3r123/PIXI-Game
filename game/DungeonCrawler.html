@@ -70,7 +70,7 @@
 
             //Doors
             door = new Sprite(id["door.png"]);
-            door.position.set(32, 0);
+            door.position.set(38, 0);
             door.scale.x = 1.5;
             door.scale.y = 1.25;
             gameScene.addChild(door);
@@ -90,7 +90,7 @@
             explorer.x = 38;
             explorer.y = 10;
             explorer.vx = 0;
-            explorer.vy = 0.25;
+            explorer.vy = 0;
             gameScene.addChild(explorer);
 
             //Treasure
@@ -116,8 +116,8 @@
                 let blob = new Sprite(id["blob.png"]);
 
                 //increase size of blob
-                blob.scale.x = 4;
-                blob.scale.y = 4;
+                blob.scale.x = 2;
+                blob.scale.y = 2;
 
                 //Space each blob horizontally according to the `spacing` value.
                 //`xOffset` determines the point from the left of the screen
@@ -267,9 +267,9 @@
 
             //Contain the explorer inside the area of the dungeon
             contain(explorer, {
-                x: 28,
-                y: 10,
-                width: 1920,
+                x: 18,
+                y: 2,
+                width: 1902,
                 height: 894,
             });
             //contain(explorer, stage);
@@ -285,7 +285,7 @@
 
                 //Check the blob's screen boundaries
                 let blobHitsWall = contain(blob, {
-                    x: 28,
+                    x: 54,
                     y: 10,
                     width: 1920,
                     height: 894,
@@ -340,6 +340,9 @@
                 state = end;
                 message.text = "You won!";
             }
+            app.stage.pivot.x = clamp(explorer.position.x - innerWidth / 2 * 0.25, 0, 1920 - innerWidth / (1 / 0.25))
+            app.stage.pivot.y = clamp(explorer.position.y - innerHeight / 2 * 0.25, 0, 912 - innerHeight / (1 / 0.25))
+            app.stage.scale.set(1 / 0.25)
         }
 
         function end() {
@@ -475,6 +478,10 @@
                 "keyup", key.upHandler.bind(key), false
             );
             return key;
+        }
+
+        function clamp(num, min, max) {
+            return num <= min ? min : num >= max ? max : num;
         }
     </script>
 </body>
