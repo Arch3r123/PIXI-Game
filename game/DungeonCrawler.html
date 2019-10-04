@@ -3,7 +3,16 @@
 <title>Treasure hunter</title>
 
 <body>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            overflow: hidden
+        }
+    </style>
     <script src="../pixi/pixi.min.js"></script>
+
+
     <script>
         //Aliases
         let Application = PIXI.Application,
@@ -16,14 +25,22 @@
             Text = PIXI.Text,
             TextStyle = PIXI.TextStyle;
 
+        PIXI.SCALE_MODES.DEFAULT = PIXI.SCALE_MODES.NEAREST;
+
         //Create a Pixi Application
         let app = new Application({
-            width: 512,
-            height: 512,
+            width: 1920,
+            height: 1001,
             antialiasing: true,
             transparent: false,
             resolution: 1
         });
+
+        app.renderer.view.style.position = "absolute";
+        app.renderer.view.style.display = "block";
+        app.renderer.autoResize = true;
+        app.renderer.resize(window.innerWidth, window.innerHeight);
+
 
         //Add the canvas that Pixi automatically created for you to the HTML document
         document.body.appendChild(app.view);
@@ -51,17 +68,29 @@
             dungeon = new Sprite(id["dungeon.png"]);
             gameScene.addChild(dungeon);
 
-            //Door
+            //Doors
             door = new Sprite(id["door.png"]);
             door.position.set(32, 0);
+            door.scale.x = 1.5;
+            door.scale.y = 1.25;
             gameScene.addChild(door);
+
+            /*door = new Sprite(id["door.png"]);
+            door.position.set(240, 480);
+            gameScene.addChild(door);
+
+            door = new Sprite(id["door.png"]);
+            door.position.set(480, 238);
+            gameScene.addChild(door);*/
 
             //Explorer
             explorer = new Sprite(id["explorer.png"]);
-            explorer.x = 68;
-            explorer.y = gameScene.height / 2 - explorer.height / 2;
+            explorer.scale.x = 1.5;
+            explorer.scale.y = 1.5;
+            explorer.x = 38;
+            explorer.y = 10;
             explorer.vx = 0;
-            explorer.vy = 0;
+            explorer.vy = 0.25;
             gameScene.addChild(explorer);
 
             //Treasure
@@ -71,10 +100,10 @@
             gameScene.addChild(treasure);
 
             //Make the blobs
-            let numberOfBlobs = 8,
-                spacing = 30,
+            let numberOfBlobs = 1,
+                spacing = 50,
                 xOffset = 150,
-                speed = 10,
+                speed = 0.5,
                 direction = 1;
 
             //An array to store all the blob monsters
@@ -85,6 +114,10 @@
 
                 //Make a blob
                 let blob = new Sprite(id["blob.png"]);
+
+                //increase size of blob
+                blob.scale.x = 4;
+                blob.scale.y = 4;
 
                 //Space each blob horizontally according to the `spacing` value.
                 //`xOffset` determines the point from the left of the screen
@@ -163,7 +196,7 @@
             left.press = function() {
 
                 //Change the explorer's velocity when the key is pressed
-                explorer.vx = -5;
+                explorer.vx = -2.5;
                 explorer.vy = 0;
             };
 
@@ -180,7 +213,7 @@
 
             //Up
             up.press = function() {
-                explorer.vy = -5;
+                explorer.vy = -2.5;
                 explorer.vx = 0;
             };
             up.release = function() {
@@ -191,7 +224,7 @@
 
             //Right
             right.press = function() {
-                explorer.vx = 5;
+                explorer.vx = 2.5;
                 explorer.vy = 0;
             };
             right.release = function() {
@@ -202,7 +235,7 @@
 
             //Down
             down.press = function() {
-                explorer.vy = 5;
+                explorer.vy = 2.5;
                 explorer.vx = 0;
             };
             down.release = function() {
@@ -236,8 +269,8 @@
             contain(explorer, {
                 x: 28,
                 y: 10,
-                width: 488,
-                height: 480
+                width: 1920,
+                height: 894,
             });
             //contain(explorer, stage);
 
@@ -254,8 +287,8 @@
                 let blobHitsWall = contain(blob, {
                     x: 28,
                     y: 10,
-                    width: 488,
-                    height: 480
+                    width: 1920,
+                    height: 894,
                 });
 
                 //If the blob hits the top or bottom of the stage, reverse
@@ -278,7 +311,7 @@
                 explorer.alpha = 0.5;
 
                 //Reduce the width of the health bar's inner rectangle by 1 pixel
-                healthBar.outer.width -= 5;
+                healthBar.outer.width -= 15;
 
             } else {
 
