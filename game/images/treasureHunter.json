@@ -2,11 +2,11 @@
     "frames": {
 
         "blob.png": {
-            "frame": { "x": 96, "y": 944, "w": 48, "h": 48 },
+            "frame": { "x": 96, "y": 0, "w": 16, "h": 16 },
             "rotated": false,
             "trimmed": false,
-            "spriteSourceSize": { "x": 0, "y": 0, "w": 48, "h": 48 },
-            "sourceSize": { "w": 48, "h": 48 },
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 16, "h": 16 },
+            "sourceSize": { "w": 16, "h": 16 },
             "pivot": { "x": 0.5, "y": 0.5 }
         },
         "door.png": {
@@ -40,6 +40,41 @@
             "spriteSourceSize": { "x": 0, "y": 0, "w": 16, "h": 16 },
             "sourceSize": { "w": 16, "h": 16 },
             "pivot": { "x": 0.5, "y": 0.5 }
+        },
+        "trapDoor.png": {
+            "frame": { "x": 592, "y": 960, "w": 96, "h": 32 },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 96, "h": 32 },
+            "sourceSize": { "w": 96, "h": 32 },
+            "pivot": { "x": 0.5, "y": 0.5 }
+        },
+        "sanic.png": {
+            "frame": { "x": 448, "y": 928, "w": 64, "h": 64 },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 64, "h": 64 },
+            "sourceSize": { "w": 64, "h": 64 },
+            "pivot": { "x": 0.5, "y": 0.5 }
+
+        },
+        "nyanCat.png": {
+            "frame": { "x": 240, "y": 944, "w": 80, "h": 48 },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 48 },
+            "sourceSize": { "w": 80, "h": 48 },
+            "pivot": { "x": 0.5, "y": 0.5 }
+
+        },
+        "sans.png": {
+            "frame": { "x": 192, "y": 928, "w": 48, "h": 64 },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 48, "h": 64 },
+            "sourceSize": { "w": 48, "h": 64 },
+            "pivot": { "x": 0.5, "y": 0.5 }
+
         }
     },
     "meta": {
