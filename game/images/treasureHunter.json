@@ -75,6 +75,60 @@
             "sourceSize": { "w": 48, "h": 64 },
             "pivot": { "x": 0.5, "y": 0.5 }
 
+        },
+        "cavemanSpongebob.png": {
+            "frame": { "x": 320, "y": 944, "w": 80, "h": 48 },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 48 },
+            "sourceSize": { "w": 80, "h": 48 },
+            "pivot": { "x": 0.5, "y": 0.5 }
+
+        },
+        "ugandanKnuckles.png": {
+            "frame": { "x": 512, "y": 928, "w": 80, "h": 64 },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 80, "h": 64 },
+            "sourceSize": { "w": 80, "h": 64 },
+            "pivot": { "x": 0.5, "y": 0.5 }
+
+        },
+        "theDrowned.png": {
+            "frame": { "x": 64, "y": 0, "w": 16, "h": 16 },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 16, "h": 16 },
+            "sourceSize": { "w": 16, "h": 16 },
+            "pivot": { "x": 0.5, "y": 0.5 }
+
+        },
+        "kakashi.png": {
+            "frame": { "x": 689, "y": 944, "w": 64, "h": 48 },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 64, "h": 48 },
+            "sourceSize": { "w": 64, "h": 48 },
+            "pivot": { "x": 0.5, "y": 0.5 }
+
+        },
+        "healthPickup.png": {
+            "frame": { "x": 128, "y": 0, "w": 16, "h": 16 },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 16, "h": 16 },
+            "sourceSize": { "w": 16, "h": 16 },
+            "pivot": { "x": 0.5, "y": 0.5 }
+
+        },
+        "shaggy.png": {
+            "frame": { "x": 752, "y": 928, "w": 32, "h": 64 },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 32, "h": 64 },
+            "sourceSize": { "w": 64, "h": 64 },
+            "pivot": { "x": 0.5, "y": 0.5 }
+
         }
     },
     "meta": {
