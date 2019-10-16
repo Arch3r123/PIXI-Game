@@ -41,6 +41,24 @@
             "spriteSourceSize": { "x": 0, "y": 0, "w": 16, "h": 16 },
             "sourceSize": { "w": 16, "h": 16 },
             "pivot": { "x": 0.5, "y": 0.5 }
+        },
+
+        "table.png": {
+            "frame": { "x": 608, "y": 64, "w": 128, "h": 80 },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 16, "h": 16 },
+            "sourceSize": { "w": 16, "h": 16 },
+            "pivot": { "x": 0.5, "y": 0.5 }
+        },
+
+        "ian.png": {
+            "frame": { "x": 570, "y": 0, "w": 28, "h": 48 },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": { "x": 0, "y": 0, "w": 28, "h": 48 },
+            "sourceSize": { "w": 28, "h": 48 },
+            "pivot": { "x": 0.5, "y": 0.5 }
         }
 
     },
