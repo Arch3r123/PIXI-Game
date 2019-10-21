@@ -15,13 +15,12 @@
         <source src="../resources/We like to Party.mp3" type="audio/mpeg"> 
     </audio>
     <script>
-        /*
-                                                                                                                                                                                                                                                                                                                                                                            Ian has taken an unreleased masterpiece made by Bob Ross!
-                                                                                                                                                                                                                                                                                                                                                                            Play as Bob Ross as you make your way through the different rooms being wary of what lies waiting
-                                                                                                                                                                                                                                                                                                                                                                            for you in those rooms.
-                                                                                                                                                                                                                                                                                                                                                                            Your objective is to find the open trap door and get down to Ians personal master room where he waits, defending the painting.
-                                                                                                                                                                                                                                                                                                                                                                            Make your way through his invisible walls he has placed and get past him.
-                                                                                                                                                                                                                                                                                                                                                                            Take back the painting and make it back to the ladder and to the door you came through.*/
+        // Ian has taken an unreleased masterpiece made by Bob Ross! but it is no ordinary master piece. This masterpiece makes you invulnerable to attack!
+        // Play as Bob Ross as you make your way through the different rooms being wary of what lies waiting
+        // for you in those rooms.
+        // Your objective is to find the open trap door and get down to Ians personal master room where he waits, defending the painting.
+        // Take back the magic painting and make it back to the ladder and back to the door you came through.
+
 
         //Aliasess
         let Application = PIXI.Application,
@@ -717,16 +716,18 @@
             let hitX = false;
             let hitY = false;
 
-            walls.map(wall => {
-                if (hitTestRectangle(futureX, wall)) {
-                    hitX = true;
-                }
-                if (hitTestRectangle(futureY, wall)) {
-                    hitY = true;
-                }
-            });
+            if (currentLevel !== 1) {
+                walls.map(wall => {
+                    if (hitTestRectangle(futureX, wall)) {
+                        hitX = true;
+                    }
+                    if (hitTestRectangle(futureY, wall)) {
+                        hitY = true;
+                    }
+                });
+            }
 
-            if (hitTestRectangle(explorer, ladder) && !progress) {
+            if (currentLevel === 0 && hitTestRectangle(explorer, ladder) && !progress) {
                 gameScene.removeChild(walls);
                 progress = true;
                 currentLevel = 1;
@@ -816,7 +817,7 @@
             }
 
             //Contain the explorer inside the area of the dungeon
-            if (currentLevel === 0) {
+            if (currentLevel !== 1) {
                 contain(explorer, {
                     x: 24,
                     y: 4,
@@ -1086,17 +1087,19 @@
                     explorer = new Sprite(runToTheDoorID["explorer.png"]);
                     explorer.scale.x = 1.5;
                     explorer.scale.y = 1.5;
-                    explorer.x = 816;
-                    explorer.y = 360;
+                    explorer.x = 836;
+                    explorer.y = 370;
                     explorer.vx = 0;
                     explorer.vy = 0;
                     runToTheDoor.addChild(explorer);
 
                     //Treasure
-                    /*treasure = new Sprite(id["treasure.png"]);
-                    treasure.x = runToTheDoor.width - treasure.width - 48;
-                    treasure.y = runToTheDoor.height / 2 - treasure.height / 2;
-                    runToTheDoor.addChild(treasure);*/
+                    treasure = new Sprite(id["treasure.png"]);
+                    treasure.scale.x = 0.5;
+                    treasure.scale.y = 0.5;
+                    treasure.x = explorer.x + 15;
+                    treasure.y = explorer.y + 15;
+                    runToTheDoor.addChild(treasure);
 
                     //Make the blobs
                     let numberOfBlobs = 15,
@@ -1489,35 +1492,6 @@
                         runToTheDoor.addChild(kakashi);
                     }
 
-                    //Make the healthPickup
-                    let numberOfHealthPickups = 3,
-                        healthPickupSpacing = 0,
-                        healthPickupXOffset = 1780,
-                        healthPickupSpeed = 0,
-                        healthPickupDirection = 1;
-
-                    //An array to store all the sanic monsters
-                    healthPickups = [];
-
-                    //Make as many sanics as there are `numberOfsanics`
-                    for (let i = 0; i < numberOfHealthPickups; i++) {
-
-                        //Make a sanic
-                        let healthPickup = new Sprite(runToTheDoorID["healthPickup.png"]);
-
-                        //increase size of blob
-                        healthPickup.scale.x = 1;
-                        healthPickup.scale.y = 1;
-
-                        healthPickup.vx = healthPickupSpeed * healthPickupDirection;
-
-                        //Push the blob into the `sanics` array
-                        healthPickups.push(healthPickup);
-
-                        //Add the blob to the `runToTheDoor`
-                        runToTheDoor.addChild(healthPickup);
-                    }
-
                     healthPickups[0].x = 320;
                     healthPickups[0].y = 140;
                     healthPickups[1].x = 1420;
@@ -1662,7 +1636,7 @@
 
             //Check for a collision between the explorer and the treasure
 
-            if (currentLevel === 1 && hitTestRectangle(explorer, treasure)) {
+            if (currentLevel !== 0 && hitTestRectangle(explorer, treasure)) {
 
                 //If the treasure is touching the explorer, center it over the explorer
                 treasure.scale.x = 0.5;
@@ -1688,7 +1662,7 @@
                 state = end;
                 message.text = "You won!";
             }*/
-            if (currentLevel === 0) {
+            if (currentLevel !== 1) {
                 app.stage.pivot.x = clamp(explorer.position.x - innerWidth / 2 * 0.2 + 16, 0, 1920 - innerWidth / (1 / 0.2))
                 app.stage.pivot.y = clamp(explorer.position.y - innerHeight / 2 * 0.2 + 16, 0, 912 - innerHeight / (1 / 0.2))
                 app.stage.scale.set(1 / 0.2)
