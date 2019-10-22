@@ -20,6 +20,7 @@
         // for you in those rooms.
         // Your objective is to find the open trap door and get down to Ians personal master room where he waits, defending the painting.
         // Take back the magic painting and make it back to the ladder and back to the door you came through.
+        // Once you have the magic painting, feel free to explore all the rooms care free
 
 
         //Aliasess
@@ -1094,12 +1095,12 @@
                     runToTheDoor.addChild(explorer);
 
                     //Treasure
-                    treasure = new Sprite(id["treasure.png"]);
-                    treasure.scale.x = 0.5;
-                    treasure.scale.y = 0.5;
-                    treasure.x = explorer.x + 15;
-                    treasure.y = explorer.y + 15;
-                    runToTheDoor.addChild(treasure);
+                    // treasure = new Sprite(id["treasure.png"]);
+                    // treasure.scale.x = 0.5;
+                    // treasure.scale.y = 0.5;
+                    // treasure.x = explorer.x + 15;
+                    // treasure.y = explorer.y + 15;
+                    // runToTheDoor.addChild(treasure);
 
                     //Make the blobs
                     let numberOfBlobs = 15,
@@ -1658,10 +1659,13 @@
 
             //If the explorer has brought the treasure to the exit,
             //end the game and display "You won!"
-            /*if (hitTestRectangle(treasure, door)) {
+            if (currentLevel === 2 && hitTestRectangle(explorer, door)) {
                 state = end;
                 message.text = "You won!";
-            }*/
+                setTimeout(function() {
+                    location.reload()
+                }, 500);
+            }
             if (currentLevel !== 1) {
                 app.stage.pivot.x = clamp(explorer.position.x - innerWidth / 2 * 0.2 + 16, 0, 1920 - innerWidth / (1 / 0.2))
                 app.stage.pivot.y = clamp(explorer.position.y - innerHeight / 2 * 0.2 + 16, 0, 912 - innerHeight / (1 / 0.2))
